@@ -4,6 +4,7 @@ namespace OVH\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use OVH\Category;
 use OVH\Http\Requests;
 use OVH\Http\Controllers\Controller;
 use OVH\Ticket;
@@ -28,7 +29,9 @@ class TicketController extends Controller
      */
     public function create()
     {
-        return view('tickets.create');
+        $categories = Category::all();
+
+        return view('tickets.create')->with(compact('categories'));
     }
 
     /**

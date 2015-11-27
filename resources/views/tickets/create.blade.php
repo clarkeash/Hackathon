@@ -5,13 +5,13 @@
 <h3>Create new ticket</h3>
 
 <section class="new-ticket">
-    <form action="" method="post">
+    <form action="{{ route('tickets.store') }}" method="post">
+        {{ csrf_field() }}
+
         <select>
-            <option value="">SELECT AN OPTION</option>
-            <option value="1">Web hosting</option>
-            <option value="1">Domains</option>
-            <option value="1">Account querry</option>
-            <option value="1">Other</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
         </select>
 
         <textarea id="new-ticket-body"></textarea>
