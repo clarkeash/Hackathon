@@ -22,8 +22,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $account = User::findByEmail($request->input('email'))
-            ->first();
+        $account = User::findByEmail($request->input('email'));
 
         if (is_null($account)) {
             return redirect()
