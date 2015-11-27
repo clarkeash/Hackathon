@@ -14,7 +14,7 @@
 
             <div class="ticket-body">
                 <p>{{$comments->first()->content}}</p>
-                <p>Created on {{$ticket->created_at}} by {{$comments->first()->user->name}}</p>
+                <p><small>Created on {{$ticket->created_at}} by {{$comments->first()->user->name}}</small></p>
             </div>
 
             <div class="ticket-replies">

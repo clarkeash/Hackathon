@@ -16,8 +16,8 @@
             </div>
 
             <div class="ticket-body">
-                <p>{{\OVH\Comment::where('ticket_id', $ticket->id)->first()->content}}</p>
-                <p>Created on {{$ticket->created_at}} by {{$ticket->user->name}}</p>
+                <p>{{str_limit(\OVH\Comment::where('ticket_id', $ticket->id)->first()->content, 250)}}</p>
+                <p><small>Created on {{$ticket->created_at}} by {{$ticket->user->name}}</small></p>
                 <p>
                     <a href="/tickets/{{$ticket->id}}" title="View ticket">View replies</a>
                     @if ($ticket->status !== 'closed' && auth()->user()->type === 'customer')
