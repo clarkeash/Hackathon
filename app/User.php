@@ -55,6 +55,6 @@ class User extends Model implements AuthenticatableContract,
 
     public static function findByEmail($email)
     {
-        return static::where('email', $email);
+        return static::where('email', $email)->first();
     }
 }

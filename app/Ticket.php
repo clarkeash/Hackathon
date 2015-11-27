@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     /**
+     * The default attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'status' => 'open'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

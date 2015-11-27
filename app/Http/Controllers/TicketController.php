@@ -46,6 +46,7 @@ class TicketController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
+            'category' => 'required|numeric',
         ]);
 
         $name = $request->get('name');
@@ -56,13 +57,15 @@ class TicketController extends Controller
             $user = User::create(compact('name', 'email'));
         }
 
-        Ticket::create([
+        $cat = Category::findOrFail($request->get('category'));
+
+        $ticket = Ticket::create([
             'subject' => $request->get('subject'),
             'user_id' => $user->id,
-            'category_id' => $request->get('category_id') // Need to validate
+            'category_id' => $cat->id,
         ]);
 
-        return redirect('tickets.show');
+        return redirect()->route('tickets.show', [$ticket->id]);
     }
 
     /**
