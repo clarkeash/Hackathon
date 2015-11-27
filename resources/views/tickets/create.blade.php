@@ -8,14 +8,16 @@
     <form action="{{ route('tickets.store') }}" method="post">
         {{ csrf_field() }}
 
+        {{--{{ dd(auth()->user()) }}--}}
+
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
+            <input type="text" class="form-control" name="name" id="name" placeholder="John Doe" value="{{ isset(auth()->user()->name) ? auth()->user()->name : ''  }}">
         </div>
 
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
+            <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com" value="{{ isset(auth()->user()->email) ? auth()->user()->email : ''  }}">
         </div>
 
         <div class="form-group">
