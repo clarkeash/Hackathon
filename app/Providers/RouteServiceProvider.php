@@ -4,6 +4,7 @@ namespace OVH\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use OVH\Ticket;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -24,9 +25,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
-
         parent::boot($router);
+
+        $router->model('tickets', Ticket::class);
     }
 
     /**

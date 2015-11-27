@@ -65,12 +65,16 @@ class TicketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ticket)
     {
-        //
+        $comments = $ticket->comments;
+
+        return view('tickets.show')
+            ->withTicket($ticket)
+            ->withComments($comments);
     }
 
     /**
