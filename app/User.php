@@ -36,4 +36,20 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Get the tickets for the user.
+     */
+    public function tickets()
+    {
+        return $this->hasMany('App\Ticket');
+    }
+
+    /**
+     * Get all of the users comments
+     */
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'person');
+    }
 }
