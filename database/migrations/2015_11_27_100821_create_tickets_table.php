@@ -15,7 +15,6 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('category_id')->unsigned();
             $table->string('status');
             $table->string('subject');
             $table->timestamps();
@@ -24,11 +23,6 @@ class CreateTicketsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('restrict');
         });
     }
 
@@ -41,7 +35,6 @@ class CreateTicketsTable extends Migration
     {
         Schema::table('tickets', function ($table) {
             $table->dropForeign('tickets_user_id_foreign');
-            $table->dropForeign('tickets_category_id_foreign');
         });
 
         Schema::drop('tickets');
