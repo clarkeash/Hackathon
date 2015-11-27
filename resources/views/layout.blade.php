@@ -24,16 +24,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.html">Brand</a>
+                <a class="navbar-brand" href="/dashboard">Brand</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="new_ticket.html">Create Ticket</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/tickets/create">Create Ticket</a></li>
                     <li><a href="/tickets">View all tickets</a></li>
-                    <li><a href="/logout">Log Out</a></li>
+                    @if (auth()->user())
+                        <li><a href="/logout">Log Out</a></li>
+                    @else
+                        <li><a href="/">Log In</a></li>
+                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

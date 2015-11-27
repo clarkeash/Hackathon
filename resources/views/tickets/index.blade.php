@@ -6,7 +6,7 @@
     <h3>Your tickets</h3>
 
     <section class="latest-tickets">
-        @foreach($tickets as $ticket)
+        @forelse($tickets as $ticket)
             <div class="ticket-subject">
                 {{$ticket->subject}}
             </div>
@@ -25,7 +25,9 @@
                     @endif
                 </p>
             </div>
-        @endforeach
+        @empty
+            <h4>No Tickets Found</h4>
+        @endforelse
 
         {!! $tickets->render() !!}
 
