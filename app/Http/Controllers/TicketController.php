@@ -55,7 +55,11 @@ class TicketController extends Controller
 
         Ticket::create([
             'subject' => $request->get('subject'),
+            'user_id' => $user->id,
+            'category_id' => $request->get('category_id') // Need to validate
         ]);
+
+        return redirect('tickets.show');
     }
 
     /**

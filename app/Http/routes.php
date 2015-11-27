@@ -17,3 +17,5 @@ Route::post('/', 'LoginController@login');
 Route::get('logout', 'LoginController@logout');
 
 Route::get('dashboard', 'DashboardController@dashboard');
+
+Route::resource('tickets', 'TicketController');
