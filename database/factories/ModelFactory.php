@@ -33,6 +33,7 @@ $factory->define(OVH\Ticket::class, function (Faker\Generator $faker) {
     ];
 });
 
+
 $factory->define(OVH\Comment::class, function (Faker\Generator $faker) {
     return [
         'content' => $faker->sentences(10, true),
