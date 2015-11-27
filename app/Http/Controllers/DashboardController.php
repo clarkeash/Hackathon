@@ -12,6 +12,8 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
+        if(auth()->guest()) return redirect('/');
+        
         if(auth()->user()->type == "admin")
         {
             $cats = Category::all();
