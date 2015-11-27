@@ -16,7 +16,7 @@ class ShowTicketRequest extends Request
         $ticket = $this->route('tickets');
         $user = auth()->user();
 
-        return $user->type === 'admin' || $ticket->user_id === $user->id;
+        return $user && ($user->type === 'admin' || $ticket->user_id === $user->id);
     }
 
     /**
