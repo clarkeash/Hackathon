@@ -46,6 +46,6 @@ $factory->define(OVH\Comment::class, function (Faker\Generator $faker) {
         'content' => $faker->sentences(10, true),
         'ticket_id' => $faker->numberBetween(1, 50),
         'person_id' => $faker->numberBetween(1, 50),
-        'person_type' => $faker->randomElement(['staff', 'user'])
+        'person_type' => $faker->randomElement([\OVH\Staff::class, \OVH\User::class])
     ];
 });
