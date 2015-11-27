@@ -52,4 +52,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->morphMany(Comment::class, 'person');
     }
+
+    public static function findByEmail($email)
+    {
+        return static::where('email', $email);
+    }
 }
