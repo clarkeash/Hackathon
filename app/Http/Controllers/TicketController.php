@@ -5,6 +5,7 @@ namespace OVH\Http\Controllers;
 use Illuminate\Http\Request;
 
 use OVH\Category;
+use OVH\Comment;
 use OVH\Http\Requests;
 use OVH\Http\Controllers\Controller;
 use OVH\Ticket;
@@ -98,12 +99,19 @@ class TicketController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $ticket)
     {
-        //
+        $comment = new Comment;
+        $comment->content = $request->input('content');
+        $comment->person_id = auth()->user()->id;
+        $comment->person_type = User::class;
+
+        $ticket->comments()->save($comment);
+
+        return redirect()->back();
     }
 
     /**
