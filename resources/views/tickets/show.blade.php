@@ -14,7 +14,7 @@
 
             <div class="ticket-body">
                 <p>{{$comments->first()->content}}</p>
-                <p>Created on {{$ticket->created_at}} by {{\OVH\User::find($ticket->user_id)->name}}</p>
+                <p>Created on {{$ticket->created_at}} by {{$comments->first()->user->name}}</p>
             </div>
 
             <div class="ticket-replies">

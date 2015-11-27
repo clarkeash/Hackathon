@@ -84,6 +84,10 @@ footer {
     background: #ffa8a8;
 }
 
+.waiting {
+ background: #FFF4A7;
+}
+
 .ticket-body {
     clear: both;   
     padding: 10px;

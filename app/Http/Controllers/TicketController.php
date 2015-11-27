@@ -8,6 +8,7 @@ use OVH\Category;
 use OVH\Comment;
 use OVH\Http\Requests;
 use OVH\Http\Controllers\Controller;
+use OVH\Http\Requests\ShowTicketRequest;
 use OVH\Ticket;
 use OVH\User;
 
@@ -72,10 +73,12 @@ class TicketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Ticket  $ticket
+     * @param ShowTicketRequest $request
+     * @param  Ticket           $ticket
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show($ticket)
+    public function show(ShowTicketRequest $request, $ticket)
     {
         $comments = $ticket->comments;
 
