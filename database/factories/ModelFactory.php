@@ -14,8 +14,31 @@
 $factory->define(OVH\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'email' => $faker->email
+    ];
+});
+
+$factory->define(OVH\Staff::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email
+    ];
+});
+
+$factory->define(OVH\Ticket::class, function (Faker\Generator $faker) {
+    return [
+        'subject' => $faker->sentence(),
+        'status' => $faker->randomElement(['open', 'closed', 'waiting']),
+        'user_id' => $faker->numberBetween(1, 50),
+    ];
+});
+
+
+$factory->define(OVH\Comment::class, function (Faker\Generator $faker) {
+    return [
+        'content' => $faker->sentences(10, true),
+        'ticket_id' => $faker->numberBetween(1, 50),
+        'person_id' => $faker->numberBetween(1, 50),
+        'person_type' => $faker->randomElement(['staff', 'user'])
     ];
 });
