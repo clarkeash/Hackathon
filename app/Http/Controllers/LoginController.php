@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $account = User::where('email', $request->input('email'))
+        $account = User::findByEmail($request->input('email'))
             ->first();
 
         if (is_null($account)) {
