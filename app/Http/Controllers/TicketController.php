@@ -67,6 +67,12 @@ class TicketController extends Controller
             'category_id' => $cat->id,
         ]);
 
+        $comment = new Comment;
+        $comment->content = $request->get('comment');
+        $comment->user_id = $user->id;
+
+        $ticket->comments()->save($comment);
+
         return redirect()->route('tickets.show', [$ticket->id]);
     }
 

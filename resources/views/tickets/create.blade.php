@@ -34,7 +34,7 @@
 
 
 
-        <textarea id="new-ticket-body"></textarea>
+        <textarea id="new-ticket-body" name="comment"></textarea>
 
         <button class="btn btn-primary" type="submit">Create ticket</button>
     </form>
