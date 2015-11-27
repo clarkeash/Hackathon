@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'DashboardController@showLogin');
-Route::post('/', 'DashboardController@login');
+Route::get('/', 'LoginController@showLogin');
+Route::post('/', 'LoginController@login');
 
-Route::get('logout', 'DashboardController@logout');
+Route::get('logout', 'LoginController@logout');
 
 Route::get('dashboard', 'DashboardController@dashboard');
