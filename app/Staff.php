@@ -11,6 +11,6 @@ class Staff extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'person');
+        return $this->morphMany(Comment::class, 'person');
     }
 }

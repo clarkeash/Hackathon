@@ -11,14 +11,22 @@ class Ticket extends Model
      */
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     /**
-     * Get the ticket that owns the comment.
+     * Get the user that owns the ticket.
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the category that the ticket belongs to.
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
