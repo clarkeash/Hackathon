@@ -8,11 +8,31 @@
     <form action="{{ route('tickets.store') }}" method="post">
         {{ csrf_field() }}
 
-        <select>
-            @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
-        </select>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Subject:</label>
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Helllppp!!">
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Category:</label>
+            <select name="subject" id="subject">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+
 
         <textarea id="new-ticket-body"></textarea>
 
