@@ -106,8 +106,7 @@ class TicketController extends Controller
     {
         $comment = new Comment;
         $comment->content = $request->input('content');
-        $comment->person_id = auth()->user()->id;
-        $comment->person_type = User::class;
+        $comment->user_id = auth()->user()->id;
 
         $ticket->comments()->save($comment);
 

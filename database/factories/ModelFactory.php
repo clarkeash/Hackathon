@@ -14,14 +14,8 @@
 $factory->define(OVH\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email
-    ];
-});
-
-$factory->define(OVH\Staff::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->email
+        'email' => $faker->email,
+        'type' => $faker->randomElement(['admin', 'customer'])
     ];
 });
 
@@ -45,7 +39,6 @@ $factory->define(OVH\Comment::class, function (Faker\Generator $faker) {
     return [
         'content' => $faker->sentences(10, true),
         'ticket_id' => $faker->numberBetween(1, 50),
-        'person_id' => $faker->numberBetween(1, 50),
-        'person_type' => $faker->randomElement([\OVH\Staff::class, \OVH\User::class])
+        'user_id' => $faker->numberBetween(1, 50)
     ];
 });

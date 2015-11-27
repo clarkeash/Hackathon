@@ -19,9 +19,9 @@
 
             <div class="ticket-replies">
                 @for($i = 1; $i < count($comments); $i++)
-                    <div class="reply-{{$comments[$i]->person_type == \OVH\Staff::class ? 'admin' : 'customer'}}">
+                    <div class="reply-{{$comments[$i]->user->type}}">
                         <div class="reply-header">
-                            <strong>{{$comments[$i]->person->name}} </strong> <small><em>replied on {{$comments[$i]->created_at}}</em></small>
+                            <strong>{{$comments[$i]->user->name}} </strong> <small><em>replied on {{$comments[$i]->created_at}}</em></small>
                         </div>
                         <div class="reply-message">
                             {{$comments[$i]->content}}

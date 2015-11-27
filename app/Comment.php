@@ -17,8 +17,8 @@ class Comment extends Model
     /**
      * Get all of the owning person models.
      */
-    public function person()
+    public function user()
     {
-        return $this->morphTo();
+        return $this->belongsTo(User::class);
     }
 }
