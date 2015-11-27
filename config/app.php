@@ -140,10 +140,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        OVH\Providers\AppServiceProvider::class,
+        OVH\Providers\AuthServiceProvider::class,
+        OVH\Providers\EventServiceProvider::class,
+        OVH\Providers\RouteServiceProvider::class,
 
     ],
 

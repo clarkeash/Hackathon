@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace OVH\Http\Controllers\Auth;
 
-use App\User;
+use OVH\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use OVH\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

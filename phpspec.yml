@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: OVH
+        psr4_prefix: OVH
         src_path: app

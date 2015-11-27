@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace OVH\Jobs;
 
 use Illuminate\Bus\Queueable;
 
