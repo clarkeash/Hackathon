@@ -30,7 +30,9 @@
                 @endfor
 
                 @if ($ticket->status !== 'closed')
-                    <a href="close.html"><button class="btn btn-primary yellow" id="close" type="submit">Close the ticket</button></a>
+                    @if (auth()->user()->type === 'customer')
+                        <a href="/tickets/{{$ticket->id}}/close"><button class="btn btn-primary yellow" id="close" type="submit">Close the ticket</button></a>
+                    @endif
 
                     <div class="reply">
                         <h2>Reply</h2>

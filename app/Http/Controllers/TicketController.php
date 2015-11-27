@@ -21,10 +21,13 @@ class TicketController extends Controller
      */
     public function index()
     {
+        if (!auth()->user()) {
+            return redirect('/');
+        }
+
         $tickets = new Ticket;
         $user = auth()->user();
-        if ($user->type === 'customer')
-        {
+        if ($user->type === 'customer') {
             $tickets = $tickets->where('user_id', $user->id);
         }
         $tickets = $tickets->simplePaginate(5);
@@ -134,11 +137,16 @@ class TicketController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param ShowTicketRequest $request
+     * @param  ticket           $ticket
+     *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ShowTicketRequest $request, $ticket)
     {
-        //
+        $ticket->status = 'closed';
+        $ticket->save();
+
+        return redirect()->back();
     }
 }

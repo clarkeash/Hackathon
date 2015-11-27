@@ -18,4 +18,5 @@ Route::get('logout', 'LoginController@logout');
 
 Route::get('dashboard', 'DashboardController@dashboard');
 
+Route::get('tickets/{tickets}/close', 'TicketController@destroy');
 Route::resource('tickets', 'TicketController');
