@@ -21,7 +21,16 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = new Ticket;
+        $user = auth()->user();
+        if ($user->type === 'customer')
+        {
+            $tickets = $tickets->where('user_id', $user->id);
+        }
+        $tickets = $tickets->simplePaginate(5);
+
+        return view('tickets.index')
+            ->withTickets($tickets);
     }
 
     /**

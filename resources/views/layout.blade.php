@@ -32,8 +32,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="dashboard.html">Dashboard</a></li>
                     <li><a href="new_ticket.html">Create Ticket</a></li>
-                    <li><a href="all_tickets.html">View all tickets</a></li>
-                    <li><a href="logout.php">Log Out</a></li>
+                    <li><a href="/tickets">View all tickets</a></li>
+                    <li><a href="/logout">Log Out</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
