@@ -29,19 +29,23 @@
                     </div>
                 @endfor
 
-                <a href="close.html"><button class="btn btn-primary yellow" id="close" type="submit">Close the ticket</button></a>
+                @if ($ticket->status !== 'closed')
+                    <a href="close.html"><button class="btn btn-primary yellow" id="close" type="submit">Close the ticket</button></a>
 
-                <div class="reply">
-                    <h2>Reply</h2>
-                    <form method="POST" action="/tickets/{{$ticket->id}}">
-                        {{ method_field('PUT') }}
-                        {{ csrf_field() }}
-                        <textarea id="new-ticket-body" name="content"></textarea>
+                    <div class="reply">
+                        <h2>Reply</h2>
+                        <form method="POST" action="/tickets/{{$ticket->id}}">
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
+                            <textarea id="new-ticket-body" name="content"></textarea>
 
-                        <button class="btn btn-primary" type="submit">Reply</button>
-                    </form>
+                            <button class="btn btn-primary" type="submit">Reply</button>
+                        </form>
 
-                </div>
+                    </div>
+                @else
+                    <h2>You cannot reply to closed tickets.</h2>
+                @endif
             </div>
 
         </section>
